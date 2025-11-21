@@ -5,8 +5,9 @@
 **Outil automatique de rotation d'images portrait vers paysage**
 
 [![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)](https://www.microsoft.com/windows)
+
+![Aperçu de l'application](screenshots/app_screenshot.png)
 
 </div>
 
@@ -16,7 +17,7 @@
 
 **Rotation90** est un logiciel simple et efficace qui détecte et pivote automatiquement les images en format portrait vers le format paysage. Parfait pour traiter rapidement des lots d'images sans manipulation manuelle.
 
-### ✨ Caractéristiques principales
+### Caractéristiques principales
 
 -  **Détection automatique** des images en portrait (hauteur > largeur)
 -  **Rotation de 90°** dans le sens antihoraire (tête à gauche, format paysage)
@@ -77,14 +78,24 @@
 4. **Attendez** le traitement automatique
 5. **Consultez** le résumé des opérations
 
+### Aperçu visuel
+
+<div align="center">
+
+![Interface de l'application](screenshots/interface.png)
+
+*Interface simple et intuitive avec logs en temps réel*
+
+</div>
+
 ### Exemple de transformation
 
 | Avant | Après |
 |-------|-------|
-|  Portrait 800×1200 | 🖼️ Paysage 1200×800 (pivotée 90°) |
-|  Paysage 1200×800 | 🖼️ Paysage 1200×800 (inchangée) |
+|  Portrait 800×1200 | Paysage 1200×800 (pivotée 90°) |
+|  Paysage 1200×800 | Paysage 1200×800 (inchangée) |
 
-> ⚠️ **Important** : Les images originales sont modifiées. Faites une sauvegarde si nécessaire.
+>  **Important** : Les images originales sont modifiées. Faites une sauvegarde si nécessaire.
 
 ---
 
@@ -107,12 +118,15 @@ rotation90/
 ├── feather.ico           # Icône de l'application
 ├── feather.png           # Icône PNG
 ├── requirements.txt      # Dépendances Python
+├── screenshots/          # Captures d'écran
+│   ├── app_screenshot.png
+│   └── interface.png
 └── README.md            # Documentation
 ```
 
 ---
 
-## 🔧 Build de l'exécutable
+##  Build de l'exécutable
 
 Pour créer votre propre exécutable Windows :
 
@@ -134,30 +148,24 @@ python build_exe.py
 
 ---
 
-## 🤝 Contribution
+##  Contribution
 
 Les contributions sont les bienvenues ! N'hésitez pas à :
 
-- 🐛 Signaler des bugs
-- 💡 Proposer des nouvelles fonctionnalités
-- 🔀 Soumettre des pull requests
+-  Signaler des bugs
+-  Proposer des nouvelles fonctionnalités
+-  Soumettre des pull requests
 
 ---
 
-## 📝 License
+## License
 
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
-
----
-
-## 👤 Auteur
-
-Développé avec 🪶 pour simplifier la gestion d'images
+Ce projet est libre et open source.
 
 ---
 
 <div align="center">
 
-**⭐ N'oubliez pas de mettre une étoile si ce projet vous aide ! ⭐**
+** N'oubliez pas de mettre une étoile si ce projet vous aide ! **
 
 </div>
