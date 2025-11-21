@@ -8,7 +8,7 @@ Supporte: PNG, JPG, JPEG, BMP, GIF, TIFF, WEBP
 import os
 import sys
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ExifTags
 import tkinter as tk
 from tkinter import filedialog, messagebox, scrolledtext
 import threading
@@ -130,6 +130,30 @@ class ImageRotator:
                 try:
                     # Ouvrir l'image
                     with Image.open(image_file) as img:
+                        # Appliquer l'orientation EXIF si présente
+                        # Cela corrige l'orientation selon les métadonnées de l'appareil photo
+                        try:
+                            # Chercher l'orientation EXIF
+                            exif = img._getexif()
+                            if exif is not None:
+                                for orientation_key in ExifTags.TAGS.keys():
+                                    if ExifTags.TAGS[orientation_key] == 'Orientation':
+                                        break
+                                
+                                orientation = exif.get(orientation_key)
+                                
+                                # Appliquer la rotation selon EXIF
+                                if orientation == 3:
+                                    img = img.rotate(180, expand=True)
+                                elif orientation == 6:
+                                    img = img.rotate(270, expand=True)
+                                elif orientation == 8:
+                                    img = img.rotate(90, expand=True)
+                        except (AttributeError, KeyError, IndexError):
+                            # Pas de données EXIF, continuer normalement
+                            pass
+                        
+                        # Maintenant vérifier les dimensions RÉELLES après correction EXIF
                         width, height = img.size
                         
                         # Vérifier si l'image est en portrait
@@ -140,9 +164,8 @@ class ImageRotator:
                             # Cela met la tête à gauche
                             rotated_img = img.rotate(90, expand=True)
                             
-                            # Sauvegarder (écrase l'original)
-                            # Préserver le format original
-                            rotated_img.save(image_file)
+                            # Sauvegarder sans les métadonnées EXIF pour éviter les conflits
+                            rotated_img.save(image_file, exif=b'')
                             rotated_count += 1
                             
                         else:
