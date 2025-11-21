@@ -52,7 +52,7 @@
 
 1. **Cloner le projet**
    ```bash
-   git clone https://github.com/votre-username/rotation90.git
+   git clone https://github.com/sorasilver25/rotation90.git
    cd rotation90
    ```
 
